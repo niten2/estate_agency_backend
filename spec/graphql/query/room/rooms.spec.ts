@@ -16,15 +16,3 @@ describe("", () => {
   })
 
 })
-
-describe("unauthorized", () => {
-  let res
-
-  beforeEach(async () => {
-    res = await execGraphql({ query, unauth: true })
-  })
-
-  it('should return valid response', async () => {
-    expect(res.errors).toContainEqual(matchers.errors_unauthorized_json)
-  })
-})
