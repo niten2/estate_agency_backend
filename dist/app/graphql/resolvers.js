@@ -12,14 +12,14 @@ const models_1 = require("app/models");
 const jwt_token_1 = require("app/services/jwt_token");
 const utils_1 = require("app/services/utils");
 const Query = {
-    rooms: utils_1.authenticated((root, args, ctx) => __awaiter(this, void 0, void 0, function* () {
+    rooms: (root, args, ctx) => __awaiter(this, void 0, void 0, function* () {
         const rooms = yield models_1.Room.find();
         return rooms;
-    })),
-    room: utils_1.authenticated((root, args, ctx) => __awaiter(this, void 0, void 0, function* () {
+    }),
+    room: (root, args, ctx) => __awaiter(this, void 0, void 0, function* () {
         const room = yield models_1.Room.findById(args.id);
         return room;
-    })),
+    }),
 };
 const Mutation = {
     createRoom: utils_1.authenticated((root, args, ctx) => __awaiter(this, void 0, void 0, function* () {
@@ -51,10 +51,10 @@ const Mutation = {
             token,
         };
     }),
-    searchRoom: utils_1.authenticated((_, args, ctx) => __awaiter(this, void 0, void 0, function* () {
+    searchRoom: (_, args, ctx) => __awaiter(this, void 0, void 0, function* () {
         const rooms = models_1.Room.find({ name: { $regex: args.input.name } });
         return rooms;
-    })),
+    }),
 };
 exports.default = { Query, Mutation };
 //# sourceMappingURL=resolvers.js.map
