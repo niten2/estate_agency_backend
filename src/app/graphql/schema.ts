@@ -5,6 +5,8 @@ const query = `
   type Query {
     rooms(id: ID): [Room]
     room(id: ID): Room
+
+    searchRoom(input: SearchInput!): [Room]
   }
 `
 
@@ -57,6 +59,10 @@ const inputs = `
   input TokenCreateInput {
     login: String!
     password: String!
+  }
+
+  input SearchInput {
+    name: String!
   }
 `
 
