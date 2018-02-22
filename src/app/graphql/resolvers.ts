@@ -58,6 +58,11 @@ const Mutation = {
     }
   },
 
+  searchRoom: authenticated(async (_: any, args: any, ctx: any) => {
+    const rooms = Room.find({ name: { $regex: args.input.name } })
+    return rooms
+  }),
+
 }
 
 export default { Query, Mutation }

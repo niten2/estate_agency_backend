@@ -15,6 +15,8 @@ const mutation = `
     deleteRoom(input: IdInput!): Room
 
     createToken(input: TokenCreateInput!): Token
+
+    searchRoom(input: SearchInput!): [Room]
   }
 `
 
@@ -57,6 +59,10 @@ const inputs = `
   input TokenCreateInput {
     login: String!
     password: String!
+  }
+
+  input SearchInput {
+    name: String!
   }
 `
 
