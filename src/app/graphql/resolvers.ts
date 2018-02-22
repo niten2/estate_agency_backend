@@ -3,17 +3,17 @@ import { createJwt } from "app/services/jwt_token"
 import { authenticated } from "app/services/utils"
 
 const Query = {
-  rooms: authenticated(async (root: any, args: any, ctx: any) => {
+  rooms: async (root: any, args: any, ctx: any) => {
     const rooms = await Room.find()
 
     return rooms
-  }),
+  },
 
-  room: authenticated(async (root: any, args: any, ctx: any) => {
+  room: async (root: any, args: any, ctx: any) => {
     const room = await Room.findById(args.id)
 
     return room
-  }),
+  },
 }
 
 const Mutation = {
@@ -58,10 +58,10 @@ const Mutation = {
     }
   },
 
-  searchRoom: authenticated(async (_: any, args: any, ctx: any) => {
+  searchRoom: async (_: any, args: any, ctx: any) => {
     const rooms = Room.find({ name: { $regex: args.input.name } })
     return rooms
-  }),
+  },
 
 }
 
