@@ -1,7 +1,7 @@
 import { Room } from "config/initialize/mongoose"
 
 const query = `
-  query searchRoom($input: SearchInput!) {
+  mutation searchRoom($input: SearchInput!) {
     searchRoom(input: $input) {
       ${matchers.room_attr}
     }

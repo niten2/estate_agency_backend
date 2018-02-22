@@ -14,11 +14,6 @@ const Query = {
 
     return room
   }),
-
-  searchRoom: authenticated(async (_: any, args: any, ctx: any) => {
-    const rooms = Room.find({ name: { $regex: args.input.name } })
-    return rooms
-  }),
 }
 
 const Mutation = {
@@ -62,6 +57,11 @@ const Mutation = {
       token,
     }
   },
+
+  searchRoom: authenticated(async (_: any, args: any, ctx: any) => {
+    const rooms = Room.find({ name: { $regex: args.input.name } })
+    return rooms
+  }),
 
 }
 

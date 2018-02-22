@@ -5,8 +5,6 @@ const query = `
   type Query {
     rooms(id: ID): [Room]
     room(id: ID): Room
-
-    searchRoom(input: SearchInput!): [Room]
   }
 `
 
@@ -17,6 +15,8 @@ const mutation = `
     deleteRoom(input: IdInput!): Room
 
     createToken(input: TokenCreateInput!): Token
+
+    searchRoom(input: SearchInput!): [Room]
   }
 `
 
