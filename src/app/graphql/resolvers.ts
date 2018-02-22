@@ -58,10 +58,10 @@ const Mutation = {
     }
   },
 
-  searchRoom: authenticated(async (_: any, args: any, ctx: any) => {
+  searchRoom: async (_: any, args: any, ctx: any) => {
     const rooms = Room.find({ name: { $regex: args.input.name } })
     return rooms
-  }),
+  },
 
 }
 
