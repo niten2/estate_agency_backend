@@ -42,24 +42,3 @@ describe("empty params given", () => {
     expect(res.data.searchRoom).toEqual([])
   })
 })
-
-describe("unauthorized", () => {
-  let res
-  let room
-
-  beforeEach(async () => {
-    room = await factory.create('room')
-
-    const variableValues = {
-      input: {
-        name: room.name,
-      }
-    }
-
-    res = await execGraphql({ query, variableValues, unauth: true })
-  })
-
-  it('should return valid response', async () => {
-    expect(res.errors).toContainEqual(matchers.errors_unauthorized_json)
-  })
-})
