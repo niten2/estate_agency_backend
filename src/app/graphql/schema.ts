@@ -23,7 +23,18 @@ const mutation = `
 const models = `
   type Room {
     id: ID
-    name: String
+
+    region: String
+    address: String
+    house_number: String
+    number_of_rooms: String
+    area: String
+    floor: String
+    deadline: String
+    price: String
+
+    images: [String]
+
     createdAt: String
     updatedAt: String
   }
@@ -48,7 +59,16 @@ const inputs = `
   }
 
   input RoomCreateInput {
-    name: String!
+    region: String
+    address: String
+    house_number: String
+    number_of_rooms: String
+    area: String
+    floor: String
+    deadline: String
+    price: String
+
+    images: [String]
   }
 
   input RoomUpdateInput {
