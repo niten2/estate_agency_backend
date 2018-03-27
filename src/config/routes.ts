@@ -11,6 +11,11 @@ export default (app: Express) => {
     })
   })
 
+  app.get("/kl+mn", (req: Request, res: Response, next: NextFunction): void => {
+    return res.send("kl+mn")
+  })
+
+
   app.use("/v1", graphqlExpress(graphqOptions))
   app.use("/v1", graphiqlExpress({ endpointURL: "/graphql" }))
 }
